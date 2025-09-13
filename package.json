@@ -1,0 +1,51 @@
+{
+    "name": "mrmat-versioning-action",
+    "description": "A GitHub Action to create a unique project versions",
+    "version": "0.0.0",
+    "author": "MrMat",
+    "license": "MIT",
+    "type": "module",
+    "private": true,
+    "homepage": "https://github.com/MrMatAP/mrmat-versioning-action",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com//MrMatAP/mrmat-versioning-action.git"
+    },
+    "bugs": {
+        "url": "https://github.com//MrMatAP/mrmat-versioning-action/issues"
+    },
+    "keywords": [
+        "actions"
+    ],
+    "exports": {
+        ".": "./dist/index.js"
+    },
+    "engines": {
+        "node": ">=24.0.0"
+    },
+    "scripts": {
+        "bundle": "npm run format:write && npm run package",
+        "format:write": "npx prettier --write .",
+        "format:check": "npx prettier --check .",
+        "package": "npx rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@actions/core": "^1.11.1",
+        "@actions/github": "^6.0.1"
+    },
+    "devDependencies": {
+        "typescript": "^5.9.2",
+        "@types/jest": "^30.0.0",
+        "@types/node": "^24.3.1",
+        "@typescript-eslint/eslint-plugin": "^8.43.0",
+        "@typescript-eslint/parser": "^8.32.1",
+        "@rollup/plugin-commonjs": "^28.0.6",
+        "@rollup/plugin-node-resolve": "^16.0.1",
+        "@rollup/plugin-typescript": "^12.1.4",
+        "rollup": "^4.50.1",
+        "prettier": "^3.6.2",
+        "prettier-eslint": "^16.4.2",
+        "@github/local-action": "^5.2.0"
+    }
+}
