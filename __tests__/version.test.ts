@@ -43,6 +43,22 @@ describe('Version Calculations', () => {
             is_release: false,
             ecosystem: 'Java',
             expected: '1.2.3-SNAPSHOT'
+        },
+        {
+            major: '1',
+            minor: '2',
+            micro: 3,
+            is_release: true,
+            ecosystem: 'Javascript',
+            expected: '1.2.3'
+        },
+        {
+            major: '1',
+            minor: '2',
+            micro: 3,
+            is_release: false,
+            ecosystem: 'Javascript',
+            expected: '1.2.3-dev0'
         }
     ])(
         `Returns $expected`,

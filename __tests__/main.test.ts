@@ -51,6 +51,24 @@ describe('GitHub Actions Interface', () => {
             runNumber: 3,
             ref: 'refs/heads/develop',
             expected: '1.2.3-SNAPSHOT'
+        },
+        {
+            ecosystem: 'javascript',
+            release_branch_ref: 'refs/heads/main',
+            major: '1',
+            minor: '2',
+            runNumber: 3,
+            ref: 'refs/heads/main',
+            expected: '1.2.3'
+        },
+        {
+            ecosystem: 'javascript',
+            release_branch_ref: 'refs/heads/main',
+            major: '1',
+            minor: '2',
+            runNumber: 3,
+            ref: 'refs/heads/develop',
+            expected: '1.2.3-dev0'
         }
     ])(
         `Returns $expected`,

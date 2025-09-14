@@ -22,6 +22,9 @@ export function get_version(
             case 'java':
                 version += '-SNAPSHOT'
                 break
+            case 'javascript':
+                version += '-dev0'
+                break
             default:
                 throw new Error(`Unsupported ecosystem: ${ecosystem}`)
         }
