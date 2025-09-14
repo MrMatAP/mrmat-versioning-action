@@ -9,11 +9,9 @@ jest.unstable_mockModule('@actions/github', () => github)
 const { run } = await import('../src/main.js')
 
 describe('GitHub Actions Interface', () => {
-
     test('Throws error for unsupported ecosystem', () => {
         expect(() => {
             get_version('1', '2', 3, false, 'foo')
-            expect(core.setFailed).toHaveBeenNthCalledWith(1, `Version: `)
         }).toThrow()
     })
 

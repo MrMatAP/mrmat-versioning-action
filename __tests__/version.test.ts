@@ -5,7 +5,6 @@
 import { get_version } from '../src/version.js'
 
 describe('Version Calculations', () => {
-
     test('Throws error for unsupported ecosystem', () => {
         expect(() => {
             get_version('1', '2', 3, false, 'foo')
