@@ -9,7 +9,7 @@ SUFFIX is added when the action is run anywhere but on the release branch.
 Suffixes differ depending on the ecosystem the version is generated for.
 
 | Ecosystem | SUFFIX      |
-|-----------|-------------|
+| --------- | ----------- |
 | Python    | `.dev0`     |
 | Java      | `-SNAPSHOT` |
 | <Default> | '.dev0'     |
@@ -54,5 +54,6 @@ Run `npm install` and then `npm run bundle`.
 
 ### Running the action locally
 
-Create `.env` based on `.env.example`, but do not commit it to your repo. Set values in that file to simulate execution 
-within a GitHub Workflow and execute `npx @github/local-action . src/main.ts .env`.
+Create `.env` based on `.env.example`, but do not commit it to your repo. Set
+values in that file to simulate execution within a GitHub Workflow and execute
+`npx @github/local-action . src/main.ts .env`.

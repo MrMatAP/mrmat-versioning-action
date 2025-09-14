@@ -14,7 +14,7 @@ export function get_version(
     ecosystem: string
 ): string {
     let version = `${major}.${minor}.${micro}`
-    if (is_release) {
+    if (!is_release) {
         switch (ecosystem.toLowerCase()) {
             case 'python':
                 version += '.dev0'

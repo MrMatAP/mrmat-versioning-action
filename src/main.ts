@@ -6,7 +6,7 @@ import { get_version } from './version.js'
 export function run() {
     try {
         const ecosystem: string = core.getInput('ecosystem')
-        const release_branch_ref: string = core.getInput('release_ref')
+        const release_branch_ref: string = core.getInput('release_branch_ref')
         const major: string = core.getInput('major')
         const minor: string = core.getInput('minor')
 
