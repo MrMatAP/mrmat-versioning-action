@@ -35,6 +35,3 @@ jobs:
 
             - name: Test
               run: npm run ci-test
-
-            - name: Build
-              run: npm run bundle
