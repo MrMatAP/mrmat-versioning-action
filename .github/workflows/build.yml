@@ -25,7 +25,7 @@ jobs:
                   cache: npm
 
             - name: Generate version
-              uses: .
+              uses: ./
               with:
                 ecosystem: javascript
                 major: 1

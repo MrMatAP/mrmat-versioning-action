@@ -15,7 +15,11 @@ env:
 
 jobs:
   version:
-    uses: ./.github/workflows/version.yml
+    uses: ./
+    with:
+      ecosystem: javascript
+      major: 1
+      minor: 0
 
   build:
     runs-on: ubuntu-latest
