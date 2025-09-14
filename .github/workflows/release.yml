@@ -18,9 +18,9 @@ jobs:
               id: local-version
               uses: ./
               with:
-                ecosystem: javascript
-                major: 1
-                minor: 0
+                  ecosystem: javascript
+                  major: 1
+                  minor: 0
 
             - name: Create Release
               id: create_release
@@ -29,7 +29,8 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   tag_name: ${{ steps.local-version.outputs.version }}
-                  release_name: Release ${{ steps.local-version.outputs.version }}
+                  release_name:
+                      Release ${{ steps.local-version.outputs.version }}
                   body: |
                       Release ${{ steps.local-version.outputs.version }}
                   draft: false
