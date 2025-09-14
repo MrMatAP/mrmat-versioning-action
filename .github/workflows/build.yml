@@ -1,5 +1,5 @@
 #
-# Perform a regular build on any branch except main
+# Perform a regular build on any branch except the main branch.
 
 name: build
 
