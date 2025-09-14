@@ -34,8 +34,12 @@ jobs:
               run: npm run ci-test
 
             - name: Generate version
+              id: local-version
               uses: ./
               with:
                   ecosystem: javascript
                   major: 1
                   minor: 0
+
+            - name: Print Version output
+              run: echo "${{ steps.local-version.outputs.version }}"
