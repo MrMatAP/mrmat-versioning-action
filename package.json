@@ -1,7 +1,7 @@
 {
     "name": "mrmat-versioning-action",
     "description": "A GitHub Action to create a unique project versions",
-    "version": "0.0.1-0",
+    "version": "0.0.0",
     "author": "MrMat",
     "license": "MIT",
     "type": "module",
