@@ -8,9 +8,11 @@ on:
         branches-ignore:
             - main
 
+permissions:
+    contents: read
+
 jobs:
-    test-typescript:
-        name: TypeScript Tests
+    build:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -21,6 +23,13 @@ jobs:
               with:
                   node-version: 24.7.0
                   cache: npm
+
+            - name: Generate version
+              uses: .
+              with:
+                ecosystem: javascript
+                major: 1
+                minor: 0
 
             - name: Install Dependencies
               run: npm ci
@@ -33,3 +42,6 @@ jobs:
 
             - name: Test
               run: npm run ci-test
+
+            - name: Build
+              run: npm run bundle
