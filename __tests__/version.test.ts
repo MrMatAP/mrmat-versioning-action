@@ -61,7 +61,7 @@ describe('Version Calculations', () => {
             expected: '1.2.3-dev0'
         }
     ])(
-        `Returns $expected`,
+        'Returns $expected',
         ({ major, minor, micro, is_release, ecosystem, expected }) => {
             expect(
                 get_version(major, minor, micro, is_release, ecosystem)
