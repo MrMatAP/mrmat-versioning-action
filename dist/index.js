@@ -31251,13 +31251,16 @@ var githubExports = requireGithub();
  */
 function get_version(major, minor, micro, is_release, ecosystem) {
     let version = `${major}.${minor}.${micro}`;
-    if (is_release) {
+    if (!is_release) {
         switch (ecosystem.toLowerCase()) {
             case 'python':
                 version += '.dev0';
                 break;
             case 'java':
                 version += '-SNAPSHOT';
+                break;
+            case 'javascript':
+                version += '-dev0';
                 break;
             default:
                 throw new Error(`Unsupported ecosystem: ${ecosystem}`);
@@ -31269,7 +31272,7 @@ function get_version(major, minor, micro, is_release, ecosystem) {
 function run() {
     try {
         const ecosystem = coreExports.getInput('ecosystem');
-        const release_branch_ref = coreExports.getInput('release_ref');
+        const release_branch_ref = coreExports.getInput('release_branch_ref');
         const major = coreExports.getInput('major');
         const minor = coreExports.getInput('minor');
         const version = get_version(major, minor, githubExports.context.runNumber, githubExports.context.ref === release_branch_ref, ecosystem);
