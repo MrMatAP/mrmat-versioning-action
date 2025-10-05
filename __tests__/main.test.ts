@@ -71,7 +71,7 @@ describe('GitHub Actions Interface', () => {
             expected: '1.2.3-dev0'
         }
     ])(
-        `Returns $expected`,
+        'Returns $expected',
         ({
             ecosystem,
             release_branch_ref,
