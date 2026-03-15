@@ -8,17 +8,17 @@ action via inputs. The MICRO version is taken from the GitHub run number. The
 SUFFIX is added when the action is run anywhere but on the release branch.
 Suffixes differ depending on the ecosystem the version is generated for.
 
-| Ecosystem | SUFFIX      |
-| --------- | ----------- |
-| Python    | `.dev0`     |
-| Java      | `-SNAPSHOT` |
-| <Default> | '.dev0'     |
+| Ecosystem  | SUFFIX      |
+|------------|-------------|
+| Python     | `.dev0`     |
+| Java       | `-SNAPSHOT` |
+| Javascript | '-dev0'     |
 
 ## Inputs
 
 ### ecosystem
 
-**Required** The ecosystem to generate the version for.
+**Required** The ecosystem to generate the version for. One of 'Python', 'Java' or 'Javascript'
 
 ### release_branch_ref
 
