@@ -7,8 +7,18 @@ export function run() {
     try {
         const ecosystem: string = core.getInput('ecosystem')
         const release_branch_ref: string = core.getInput('release_branch_ref')
-        const major: string = core.getInput('major')
-        const minor: string = core.getInput('minor')
+        const majorInput: string = core.getInput('major')
+        const minorInput: string = core.getInput('minor')
+
+        const major = parseInt(majorInput, 10)
+        const minor = parseInt(minorInput, 10)
+        if (!Number.isInteger(major) || major < 0)
+            throw new Error(`Invalid major version: ${majorInput}`)
+        if (!Number.isInteger(minor) || minor < 0)
+            throw new Error(`Invalid minor version: ${minorInput}`)
+
+        if (!['python', 'java', 'javascript'].includes(ecosystem.toLowerCase()))
+            throw new Error(`Unsupported ecosystem: ${ecosystem}`)
 
         const version = get_version(
             major,
@@ -21,5 +31,6 @@ export function run() {
         core.setOutput('version', version)
     } catch (error) {
         if (error instanceof Error) core.setFailed(error.message)
+        else core.setFailed(String(error))
     }
 }

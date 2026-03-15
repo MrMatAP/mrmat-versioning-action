@@ -1,7 +1,6 @@
 import { jest } from '@jest/globals'
 import * as core from '../__fixtures__/core.js'
 import * as github from '../__fixtures__/github.js'
-import { get_version } from '../src/version.js'
 
 jest.unstable_mockModule('@actions/core', () => core)
 jest.unstable_mockModule('@actions/github', () => github)
@@ -9,10 +8,33 @@ jest.unstable_mockModule('@actions/github', () => github)
 const { run } = await import('../src/main.js')
 
 describe('GitHub Actions Interface', () => {
-    test('Throws error for unsupported ecosystem', () => {
-        expect(() => {
-            get_version('1', '2', 3, false, 'foo')
-        }).toThrow()
+    afterEach(() => {
+        jest.resetAllMocks()
+    })
+
+    test('Calls setFailed for unsupported ecosystem', () => {
+        core.getInput.mockImplementation((input: string) => {
+            switch (input) {
+                case 'ecosystem':
+                    return 'foo'
+                case 'release_branch_ref':
+                    return 'refs/heads/main'
+                case 'major':
+                    return '1'
+                case 'minor':
+                    return '2'
+                default:
+                    throw new Error(`Unexpected input: ${input}`)
+            }
+        })
+        github.context.runNumber = 3
+        github.context.ref = 'refs/heads/develop'
+
+        run()
+
+        expect(core.setFailed).toHaveBeenCalledWith(
+            'Unsupported ecosystem: foo'
+        )
     })
 
     test.each([
@@ -106,7 +128,6 @@ describe('GitHub Actions Interface', () => {
                 expected
             )
             expect(core.info).toHaveBeenNthCalledWith(1, `Version: ${expected}`)
-            jest.resetAllMocks()
         }
     )
 })

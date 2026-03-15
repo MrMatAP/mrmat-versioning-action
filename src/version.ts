@@ -1,14 +1,15 @@
 /**
- * Calculate the version number
+ * Generate the version of what is being built here. If the build is for a non-
+ * release version then append a suffix to the version.
  * @param major The major version number
  * @param minor The minor version number
  * @param micro The micro version number
  * @param is_release True if the version is for a release
- * @param ecosystem The ecosystem to generate the version for. Determins the suffix
+ * @param ecosystem The ecosystem to generate the version for. Determines the suffix
  */
 export function get_version(
-    major: string,
-    minor: string,
+    major: number,
+    minor: number,
     micro: number,
     is_release: boolean,
     ecosystem: string
@@ -29,6 +30,5 @@ export function get_version(
                 throw new Error(`Unsupported ecosystem: ${ecosystem}`)
         }
     }
-
     return version
 }
