@@ -39,7 +39,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         needs: prep
-        if: ${{ needs.version.outputs.abort != 'true' }}
+        if: ${{ needs.prep.outputs.abort != 'true' }}
         permissions:
             contents: read
         env:
