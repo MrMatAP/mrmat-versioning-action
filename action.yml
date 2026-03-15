@@ -26,6 +26,10 @@ outputs:
     version:
         description: The calculated version string
 
+branding:
+    icon: fast-forward
+    color: purple
+
 runs:
     using: node24
     main: dist/index.js
