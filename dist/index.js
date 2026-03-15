@@ -33509,12 +33509,12 @@ const context = new Context();
  * @param major The major version number
  * @param minor The minor version number
  * @param micro The micro version number
- * @param is_release True if the version is for a release
+ * @param isRelease True if the version is for a release
  * @param ecosystem The ecosystem to generate the version for. Determines the suffix
  */
-function get_version(major, minor, micro, is_release, ecosystem) {
+function get_version(major, minor, micro, isRelease, ecosystem) {
     let version = `${major}.${minor}.${micro}`;
-    if (!is_release) {
+    if (!isRelease) {
         switch (ecosystem.toLowerCase()) {
             case 'python':
                 version += '.dev0';
@@ -33535,7 +33535,7 @@ function get_version(major, minor, micro, is_release, ecosystem) {
 function run() {
     try {
         const ecosystem = getInput('ecosystem');
-        const release_branch_ref = getInput('release_branch_ref');
+        const releaseBranchRef = getInput('release_branch_ref');
         const majorInput = getInput('major');
         const minorInput = getInput('minor');
         const major = parseInt(majorInput, 10);
@@ -33546,7 +33546,7 @@ function run() {
             throw new Error(`Invalid minor version: ${minorInput}`);
         if (!['python', 'java', 'javascript'].includes(ecosystem.toLowerCase()))
             throw new Error(`Unsupported ecosystem: ${ecosystem}`);
-        const version = get_version(major, minor, context.runNumber, context.ref === release_branch_ref, ecosystem);
+        const version = get_version(major, minor, context.runNumber, context.ref === releaseBranchRef, ecosystem);
         info(`Version: ${version}`);
         setOutput('version', version);
     }
