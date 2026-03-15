@@ -6,7 +6,7 @@ import { get_version } from './version.js'
 export function run() {
     try {
         const ecosystem: string = core.getInput('ecosystem')
-        const release_branch_ref: string = core.getInput('release_branch_ref')
+        const releaseBranchRef: string = core.getInput('release_branch_ref')
         const majorInput: string = core.getInput('major')
         const minorInput: string = core.getInput('minor')
 
@@ -24,7 +24,7 @@ export function run() {
             major,
             minor,
             github.context.runNumber,
-            github.context.ref === release_branch_ref,
+            github.context.ref === releaseBranchRef,
             ecosystem
         )
         core.info(`Version: ${version}`)

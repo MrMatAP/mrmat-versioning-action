@@ -4,18 +4,18 @@
  * @param major The major version number
  * @param minor The minor version number
  * @param micro The micro version number
- * @param is_release True if the version is for a release
+ * @param isRelease True if the version is for a release
  * @param ecosystem The ecosystem to generate the version for. Determines the suffix
  */
 export function get_version(
     major: number,
     minor: number,
     micro: number,
-    is_release: boolean,
+    isRelease: boolean,
     ecosystem: string
 ): string {
     let version = `${major}.${minor}.${micro}`
-    if (!is_release) {
+    if (!isRelease) {
         switch (ecosystem.toLowerCase()) {
             case 'python':
                 version += '.dev0'
