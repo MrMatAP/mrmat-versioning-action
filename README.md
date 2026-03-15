@@ -9,7 +9,7 @@ SUFFIX is added when the action is run anywhere but on the release branch.
 Suffixes differ depending on the ecosystem the version is generated for.
 
 | Ecosystem  | SUFFIX      |
-|------------|-------------|
+| ---------- | ----------- |
 | Python     | `.dev0`     |
 | Java       | `-SNAPSHOT` |
 | Javascript | '-dev0'     |
@@ -18,7 +18,8 @@ Suffixes differ depending on the ecosystem the version is generated for.
 
 ### ecosystem
 
-**Required** The ecosystem to generate the version for. One of 'Python', 'Java' or 'Javascript'
+**Required** The ecosystem to generate the version for. One of 'Python', 'Java'
+or 'Javascript'
 
 ### release_branch_ref
 
@@ -50,7 +51,17 @@ with:
 
 Run `npm install` and then `npm run bundle`.
 
+## How to patch this
+
+```bash
+$ npm outdated
+$ npx npm-check-updates --format group -u
+$ npm install
+```
+
 ## How to test this
+
+Run 'npm run test' or 'jest'.
 
 ### Running the action locally
 
