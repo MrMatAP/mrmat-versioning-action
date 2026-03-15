@@ -2,6 +2,10 @@ name: MrMat Versioning Action
 author: MrMat
 description: A GitHub Action to create unique project versions
 
+branding:
+    icon: fast-forward
+    color: purple
+
 inputs:
     ecosystem:
         description: Ecosystem to generate the version for
@@ -25,10 +29,6 @@ inputs:
 outputs:
     version:
         description: The calculated version string
-
-branding:
-    icon: fast-forward
-    color: purple
 
 runs:
     using: node24
