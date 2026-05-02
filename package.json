@@ -50,7 +50,7 @@
         "eslint": "^10.0.3",
         "globals": "^17.4.0",
         "jest": "^30.3.0",
-        "jest-junit": "^16.0.0",
+        "jest-junit": "^17.0.0",
         "jiti": "^2.6.1",
         "prettier": "^3.8.1",
         "prettier-eslint": "^16.4.2",
